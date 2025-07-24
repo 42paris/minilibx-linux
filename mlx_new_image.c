@@ -32,7 +32,7 @@ int shm_att_pb(Display *d, XErrorEvent *ev)
     return 0;
 }
 
-/*
+/* 
 **  Data malloc :  width+32 ( bitmap_pad=32 ),    *4 = *32 / 8bit
 */
 
