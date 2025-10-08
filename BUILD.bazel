@@ -1,0 +1,28 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "mlx_lib",
+    srcs = glob(["*.c"]),
+    hdrs = glob(["*.h"]),
+    copts = [
+        "-Wno-error=implicit-function-declaration",
+        "-Wno-error=incompatible-pointer-types",
+        "-Wno-error=return-type",
+        "-Wno-error=strict-prototypes",
+        "-Wno-error=implicit-int",
+        "-Wno-error=missing-prototypes",
+        # "-Wno-error=too-many-arguments",      # For too many arguments error
+        "-Wno-unused-parameter",
+        "-Wno-unused-variable",
+        "-Wno-error=parentheses",
+        "-Wno-error=unused-but-set-variable",
+        "-Wno-error=old-style-definition",     # For old-style function definitions
+        "-Wno-error=strict-aliasing",          # For aliasing issues
+        "-DGL_GLEXT_PROTOTYPES",               # For OpenGL extensions
+        "-D_REENTRANT",                        # For thread safety with X11
+        "-fno-strict-aliasing",                # For compatibility with older code
+    ],
+    linkopts = ["-lX11", "-lXext", "-lm"],
+    visibility = ["//visibility:public"],
+)
+
