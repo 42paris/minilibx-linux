@@ -1,55 +1,32 @@
-## Mlx related
-Makefile.gen
-/test/mlx-test
+# Bazel build outputs
+bazel-*
+.bazel-*
 
-## Editor
-.vscode/*
+# Bazel cache and generated files
+.cache/
+workspace_deps.bzl
+
+# Nix build results
+result
+result-*
+
+# Direnv
+.direnv/
+.envrc.cache
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
 *~
-\#*\#
+.DS_Store
 
-## Other
-.DS_STORE
-
-
-
-## Template from https://github.com/github/gitignore
-# Prerequisites
-*.d
-
-# Object files
+# Compiled objects
 *.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
 *.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
 *.so
-*.so.*
 *.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
 # Debug files
 *.dSYM/
@@ -57,14 +34,16 @@ Makefile.gen
 *.idb
 *.pdb
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Core dumps
+core
+core.*
 
-# bazel
-bazel-*
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.backup
+
+# direnv
+.direnv

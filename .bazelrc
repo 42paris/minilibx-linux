@@ -1,0 +1,43 @@
+# Common build settings
+build --enable_platform_specific_config
+build --incompatible_enable_cc_toolchain_resolution
+
+# Disable bzlmod (we use WORKSPACE)
+build --noenable_bzlmod
+
+# C/C++ settings
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+build --copt=-Wall
+build --copt=-Wextra
+
+# Performance optimizations
+build:opt --compilation_mode=opt
+build:opt --copt=-O3
+build:opt --copt=-march=native
+
+# Debug configuration
+build:debug --compilation_mode=dbg
+build:debug --copt=-g
+build:debug --strip=never
+
+# Linux-specific settings
+build:linux --copt=-fPIC
+build:linux --linkopt=-Wl,-z,relro,-z,now
+
+# Enable color diagnostics
+build --color=yes
+
+# Show detailed test output
+test --test_output=errors
+
+# Cache settings
+build --disk_cache=~/.cache/bazel
+
+# Strategy for external repositories
+build --strategy=external=local
+
+# Disable sandbox for external repositories to allow Nix store access
+build --spawn_strategy=local
+build --experimental_use_hermetic_linux_sandbox=false
+build --sandbox_debug
