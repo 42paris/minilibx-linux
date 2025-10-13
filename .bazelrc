@@ -11,6 +11,9 @@ build --host_cxxopt=-std=c++17
 build --copt=-Wall
 build --copt=-Wextra
 
+build:system --action_env=CC=/usr/bin/gcc
+build:system --action_env=CXX=/usr/bin/g++
+
 # Performance optimizations
 build:opt --compilation_mode=opt
 build:opt --copt=-O3

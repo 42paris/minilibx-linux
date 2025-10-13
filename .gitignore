@@ -8,10 +8,12 @@ Makefile.gen
 # Bazel build outputs
 bazel-*
 .bazel-*
+workspace_deps.bzl
 
 # Bazel cache and generated files
 .cache/
 workspace_deps.bzl
+.bazelrc.local
 
 # Nix build results
 result
