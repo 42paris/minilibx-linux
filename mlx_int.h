@@ -120,21 +120,20 @@ typedef struct	s_xvar
 
 
 int				mlx_int_do_nothing();
-int				mlx_get_color_value();
-int				mlx_int_get_good_color();
+int				mlx_get_color_value(t_xvar *xvar,int color);
+int				mlx_int_get_good_color(t_xvar *xvar,int color);
 int				mlx_int_find_in_pcm();
-int				mlx_int_anti_resize_win();
-int				mlx_int_wait_first_expose();
-int				mlx_int_rgb_conversion();
-int				mlx_int_deal_shm();
-void			*mlx_int_new_xshm_image();
-char			**mlx_int_str_to_wordtab();
-void			*mlx_new_image();
-int				shm_att_pb();
+int				mlx_int_anti_resize_win(t_xvar *xvar, Window win, int w, int h);
+int				mlx_int_wait_first_expose(t_xvar *xvar, Window win);
+int				mlx_int_rgb_conversion(t_xvar *xvar);
+int				mlx_int_deal_shm(t_xvar *xvar);
+void			*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format);
+char			**mlx_int_str_to_wordtab(char *str);
+void			*mlx_new_image(t_xvar *xvar,int width, int height);
+int				shm_att_pb(Display *d,XErrorEvent *ev);
 int				mlx_int_get_visual(t_xvar *xvar);
 int				mlx_int_set_win_event_mask(t_xvar *xvar);
 int				mlx_int_str_str_cote(char *str,char *find,int len);
 int				mlx_int_str_str(char *str,char *find,int len);
-
 
 #endif

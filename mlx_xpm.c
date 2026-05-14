@@ -131,7 +131,7 @@ int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)
 }
 
 
-void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())
+void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)(char *,int *,int))
 {
 		int		pos;
 		char	*line;
@@ -336,7 +336,7 @@ void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)
 {
 		t_img	*img;
 
-		if (img = mlx_int_parse_xpm(xvar,xpm_data,0,mlx_int_static_line))
+		if (img = mlx_int_parse_xpm(xvar,xpm_data,0,(void*)mlx_int_static_line))
 		{
 				*width = img->width;
 				*height = img->height;

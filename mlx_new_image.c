@@ -37,7 +37,7 @@ int	shm_att_pb(Display *d,XErrorEvent *ev)
 void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)
 {
   t_img	*img;
-  int	(*save_handler)();
+  XErrorHandler	save_handler;
 
   if (!(img = malloc(sizeof(*img))))
     return ((void *)0);
