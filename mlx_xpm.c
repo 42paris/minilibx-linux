@@ -50,7 +50,7 @@ unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)
 	while (src[count] != '\0')
 		++count;
 	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	while (src[i] != '\0' && i < (size))
 	{
 		dest[i] = src[i];
 		++i;

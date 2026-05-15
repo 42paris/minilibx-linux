@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "open.xpm" // This adds the xpm file as part of the code, as xpm files
+					// are c code under the hood
+
 #define	WIN1_SX		242
 #define	WIN1_SY		242
 #define	IM1_SX		42
@@ -20,6 +23,7 @@ void    *im1;
 void	*im2;
 void	*im3;
 void	*im4;
+void	*im_raw;
 int	bpp1;
 int	bpp2;
 int	bpp3;
@@ -185,6 +189,12 @@ int	main()
   printf(" => Put xpm ...");
   mlx_put_image_to_window(mlx,win1,im2,0,0);
   mlx_put_image_to_window(mlx,win1,im2,100,100);
+  printf("OK\n");
+  sleep(2);
+
+  printf(" => Image from raw xpm data... ");
+  im_raw = mlx_xpm_to_image(mlx, open30_2_xpm, &xpm1_x, &xpm1_y);
+  mlx_put_image_to_window(mlx, win1, im_raw, 150, 0);
   printf("OK\n");
   sleep(2);
 
